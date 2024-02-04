@@ -39,13 +39,13 @@ CREATE TABLE Customers (
 
 
 -- Inserting sample data into Foods table
-INSERT INTO Foods (FoodID, FoodName, Description, Price,stocks)
+INSERT INTO Foods (FoodID, FoodName, Description, Price)
 VALUES 
-    (1, 'Tapsilog', 'Marinated beef slices served with garlic rice and fried egg', 120.00,20),
-    (2, 'Tosilog', 'Fried pork slices served with garlic rice and fried egg', 110.00,20),
-    (3, 'Longsilog', 'Filipino sausage served with garlic rice and fried egg', 100.00,20),
-    (4, 'Bangsilog', 'Fried milkfish served with garlic rice and fried egg', 130.00,20),
-    (5, 'Hotsilog', 'Hotdog slices served with garlic rice and fried egg', 90.00,20);
+    (1, 'Tapsilog', 'Marinated beef slices served with garlic rice and fried egg', 120.00),
+    (2, 'Tosilog', 'Fried pork slices served with garlic rice and fried egg', 110.00),
+    (3, 'Longsilog', 'Filipino sausage served with garlic rice and fried egg', 100.00),
+    (4, 'Bangsilog', 'Fried milkfish served with garlic rice and fried egg', 130.00),
+    (5, 'Hotsilog', 'Hotdog slices served with garlic rice and fried egg', 90.00);
 
 -- Inserting sample data into Drinks table
 INSERT INTO Drinks (DrinkID, DrinkName, Description, Price,stocks)
