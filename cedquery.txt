@@ -1,0 +1,75 @@
+create database finalsDBA_Antonio
+
+create table ingredients(
+	name varchar(50),
+	expense decimal (10,2),
+)
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY IDENTITY(1,1),
+    CustomerID INT,
+    OrderDate DATETIME,
+    FoodID INT,
+    DrinkID INT,
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
+    FOREIGN KEY (FoodID) REFERENCES Foods(FoodID),
+    FOREIGN KEY (DrinkID) REFERENCES Drinks(DrinkID)
+);
+
+CREATE TABLE Foods (
+    FoodID INT PRIMARY KEY,
+    FoodName NVARCHAR(100),
+    Description NVARCHAR(255),
+    Price DECIMAL(10, 2)
+);
+drop table Drinks
+CREATE TABLE Drinks (
+    DrinkID INT PRIMARY KEY,
+    DrinkName NVARCHAR(100),
+    Description NVARCHAR(255),
+	stocks int,
+    Price DECIMAL(10, 2)
+);
+
+-- Creating Customers table
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY IDENTITY(1,1),
+    Name NVARCHAR(50)
+);
+
+
+-- Inserting sample data into Foods table
+INSERT INTO Foods (FoodID, FoodName, Description, Price,stocks)
+VALUES 
+    (1, 'Tapsilog', 'Marinated beef slices served with garlic rice and fried egg', 120.00,20),
+    (2, 'Tosilog', 'Fried pork slices served with garlic rice and fried egg', 110.00,20),
+    (3, 'Longsilog', 'Filipino sausage served with garlic rice and fried egg', 100.00,20),
+    (4, 'Bangsilog', 'Fried milkfish served with garlic rice and fried egg', 130.00,20),
+    (5, 'Hotsilog', 'Hotdog slices served with garlic rice and fried egg', 90.00,20);
+
+-- Inserting sample data into Drinks table
+INSERT INTO Drinks (DrinkID, DrinkName, Description, Price,stocks)
+VALUES 
+    (1, 'Coffee', 'Brewed Filipino coffee', 50.00,20),
+    (2, 'Milo', 'Chocolate malt drink', 40.00,20),
+    (3, 'Tea', 'Hot tea', 30.00,20),
+    (4, 'Orange Juice', 'Freshly squeezed orange juice', 60.00,20),
+    (5, 'Pineapple Juice', 'Freshly squeezed pineapple juice', 60.00,20);
+
+-- Inserting sample data into Customers table
+INSERT INTO Customers (Name)
+VALUES 
+    ('Juan Dela Cruz'),
+    ('Maria Santos'),
+    ('Pedro Reyes'),
+    ('Luz Fernandez'),
+    ('Rosa Gonzales');
+
+	-- Inserting sample data into Orders table
+INSERT INTO Orders (CustomerID, OrderDate, FoodID, DrinkID)
+VALUES 
+    (1, '2024-02-03', 1, 1),  -- Juan Dela Cruz orders Tapsilog and Coffee
+    (2, '2024-02-03', 2, 2),  -- Maria Santos orders Tosilog and Milo
+    (3, '2024-02-03', 3, 3),  -- Pedro Reyes orders Longsilog and Tea
+    (4, '2024-02-03', 4, 4),  -- Luz Fernandez orders Bangsilog and Orange Juice
+    (5, '2024-02-03', 5, 5);  -- Rosa Gonzales orders Hotsilog and Pineapple Juice
